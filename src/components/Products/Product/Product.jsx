@@ -12,8 +12,7 @@ import { mergeClasses } from "@material-ui/core/node_modules/@material-ui/styles
 
 import useStyles from "./Styles";
 
-const Product = ({ product }) => {
-  console.log(product);
+const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -38,7 +37,10 @@ const Product = ({ product }) => {
         />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart">
+        <IconButton
+          aria-label="Add to Cart"
+          onClick={() => onAddToCart(product.id, 1)}
+        >
           <AddShoppingCart />
         </IconButton>
       </CardActions>
